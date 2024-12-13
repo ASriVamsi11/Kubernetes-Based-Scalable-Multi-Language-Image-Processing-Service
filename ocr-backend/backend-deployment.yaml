@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ocr-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ocr-backend
+  template:
+    metadata:
+      labels:
+        app: ocr-backend
+    spec:
+      containers:
+      - name: ocr-backend
+        image: srivamsia11/ocr-backend:latest
+        ports:
+        - containerPort: 5000
+        env:
+        - name: MONGO_URL
+          #value: "mongodb+srv://andavarapuvamsi3:qISi9R1HeApjKYlJ@dcscproject.puj7i.mongodb.net/"
+          #value: localhost
+          value: "mongodb://mongodb-service:27017/ocr_database"
+        - name: GOOGLE_APPLICATION_CREDENTIALS
+          value: "/etc/secret/google-credentials/dcscproject-8d7b7c202473.json"
+        - name: GCS_BUCKET
+          value: "dcscprojectb1"
+        - name: RABBITMQ_HOST
+          value: "rabbitmq"
+        volumeMounts:
+        - name: google-credentials
+          mountPath: /etc/secret/google-credentials
+          readOnly: true
+      volumes:
+      - name: google-credentials
+        secret:
+          secretName: google-credentials
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ocr-backend
+spec:
+  ports:
+  - port: 5000
+    targetPort: 5000
+  selector:
+    app: ocr-backend
