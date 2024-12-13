@@ -18,18 +18,19 @@ spec:
         env:
         - name: MONGO_URL
           #value: "mongodb+srv://andavarapuvamsi3:qISi9R1HeApjKYlJ@dcscproject.puj7i.mongodb.net/"
+          #value: "mongodb://mongodb-service:27017/ocr_database"
           value: "mongodb://mongodb-service:27017/ocr_database"
         - name: GOOGLE_APPLICATION_CREDENTIALS
-          value: "dcscproject-34b356ce3665.json"
+          value: "/etc/secret/google-credentials/dcscproject-8d7b7c202473.json"
         - name: GCS_BUCKET
           value: "dcscprojectb1"
         - name: RABBITMQ_HOST
           value: "rabbitmq"
         volumeMounts:
-        # Mount the GCS credentials as a file inside the container
-        - name: gcs-credentials
-          mountPath: dcscproject-34b356ce3665.json
-          subPath: dcscproject-34b356ce3665.json
+        # # Mount the GCS credentials as a file inside the container
+        - name: google-credentials
+          mountPath: /etc/secret/google-credentials
+          readOnly: true
         # resources:
         #   requests:
         #     memory: "256Mi"
@@ -39,6 +40,6 @@ spec:
         #     cpu: "1000m"
       volumes:
       # Define the volume for GCS credentials
-      - name: gcs-credentials
+      - name: google-credentials
         secret:
-          secretName: gcs-secret
+          secretName: google-credentials

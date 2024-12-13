@@ -20,12 +20,15 @@ db = client.ocr_database
 results_collection = db.results
 
 # Google Cloud Storage configuration
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/Users/x/Desktop/dcscproject-8d7b7c202473.json"
+# os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/Users/x/Desktop/dcscproject-8d7b7c202473.json"
+#os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/etc/secret/google-credentials/dcscproject-8d7b7c202473.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/home/asrivamsi11/dcsc_project/dcscproject-8d7b7c202473.json"
 GCS_BUCKET = "dcscprojectb1"
 storage_client = storage.Client()
 
 # RabbitMQ configuration
-RABBITMQ_HOST = "localhost"
+RABBITMQ_HOST = os.environ.get('RABBITMQ_HOST', 'localhost')
+#RABBITMQ_HOST = "localhost"
 
 # Tesseract executable path
 pytesseract.tesseract_cmd = "/usr/bin/tesseract"  # Adjust this path for your system

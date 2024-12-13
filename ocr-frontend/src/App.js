@@ -35,7 +35,7 @@ function App() {
       });
       const data = await response.json();
       setTaskId(data.task_id);
-      alert(`File uploaded successfully! Task ID: ${data.task_id}`);
+      // alert(`File uploaded successfully! Task ID: ${data.task_id}`);
     } catch (error) {
       console.error("Error uploading file: ", error);
       alert("Failed to upload the file.")
@@ -54,16 +54,16 @@ function App() {
     try {
       const response = await fetch(url);
       console.log('Response status:', response.status);
-      
+
       if (!response.ok) {
         const errorText = await response.text();
         console.error('Error response:', errorText);
         throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
       }
-      
+
       const data = await response.json();
       console.log('Received data:', data);
-      
+
       if (data.error) {
         alert(data.error);
       } else {
