@@ -22,7 +22,7 @@ This project is a cloud-based Optical Character Recognition (OCR) system designe
 5. [Scaling and Monitoring](#scaling-and-monitoring)
 6. [Troubleshooting](#troubleshooting)
 7. [Contributing](#contributing)
-8. [License](#license)
+8. [Output Screenshots](#output-screenshots)
 
 ---
 
@@ -264,6 +264,26 @@ kubectl logs <rabbitmq-pod-name>
     ```
 4. Push changes and open a pull request.
 
-## License
+## Output Screenshots
 
-This project is licensed under the MIT License. See [LICENSE](./LICENSE) for details.
+### Frontend Interface
+![Frontend Interface](Images/Frontend.png)
+
+### English Text
+![English Text Image Output](Images/English_Text_Image_Output.png)
+
+### Chinese Text
+![Chinese Text Image Output](Images/Chinese_Text_Image_Output.png)
+
+### Hindi Text
+![Hindi Text Image Output](Images/Hindi_Text_Image_Output.png)
+
+### Docker
+![Docker](Images/Docker.png)
+
+### Google Bucket
+![Google Bucket](Images/Google_Buckets.png)
+
+### Minikube Pods
+![Minikube Pods](Images/Minikube_pods.png)
+
