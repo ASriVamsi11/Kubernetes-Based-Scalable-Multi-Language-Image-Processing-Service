@@ -1,4 +1,4 @@
-# Team 102 - ChengYu Hsu and Sri Vamsi Andavarapu
+# Team 102 - Sri Vamsi Andavarapu and ChengYu Hsu
 # Kubernetes-Based Scalable Multi-Language Image Processing Service
 
 This project is a cloud-based Optical Character Recognition (OCR) system designed to process images and extract text in multiple languages. It is built using a microservices architecture and deployed on Kubernetes. The system leverages React for the frontend, Flask for the backend, and Tesseract for OCR processing.
