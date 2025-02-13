@@ -28,7 +28,7 @@ This project is a cloud-based Optical Character Recognition (OCR) system designe
 
 ## **Features**
 
-- Multi-language OCR processing (English, Hindi, Chinese, and Spanish).
+- Multi-language OCR processing (English, Hindi and Chinese).
 - Scalable architecture using Kubernetes.
 - Frontend for image upload and text display.
 - Google Cloud Storage for image management.
