@@ -19,7 +19,7 @@ spec:
         - containerPort: 5000
         env:
         - name: MONGO_URL
-          #value: "mongodb+srv://andavarapuvamsi3:qISi9R1HeApjKYlJ@dcscproject.puj7i.mongodb.net/"
+         
           #value: localhost
           value: "mongodb://mongodb-service:27017/ocr_database"
         - name: GOOGLE_APPLICATION_CREDENTIALS
